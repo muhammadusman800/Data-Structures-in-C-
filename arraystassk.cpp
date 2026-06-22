@@ -5,69 +5,62 @@ int main()
 {
     int rows, cols;
 
-    // Input rows and columns
+    // input rows and columns
     cout << "Enter number of rows: ";
     cin >> rows;
     cout << "Enter number of columns: ";
     cin >> cols;
 
-    int arr[100][100]; // max size
+    int arr[100][100]; // maz size
 
-    // Input elements
-    cout << "\nEnter elements:\n";
-    for(int i = 0; i < rows; i++)
+    // input elements
+    for (int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++)
         {
             cout << "Enter element at [" << i << "][" << j << "]: ";
             cin >> arr[i][j];
         }
     }
 
-    // Print array
-    cout << "\nEntered Data:\n";
-    for(int i = 0; i < rows; i++)
+    // print elements
+    for (int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++)
         {
-            cout << arr[i][j] << "\t";
+            cout << arr[i][j] << " ";
         }
         cout << endl;
     }
 
-    // Assume first element is min and max
     int min = arr[0][0];
     int max = arr[0][0];
-    int minRow = 0, minCol = 0;
-    int maxRow = 0, maxCol = 0;
 
-    // Find min and max
-    for(int i = 0; i < rows; i++)
+    int MinCol = 0, MinRow = 0;
+    int MaxCol = 0, MaxRow = 0;
+
+    for (int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++)
         {
-            if(arr[i][j] < min)
+            if (arr[i][j] < min)
             {
                 min = arr[i][j];
-                minRow = i;
-                minCol = j;
+                MinRow = i;
+                MinCol = j;
             }
-
-            if(arr[i][j] > max)
+            else if (arr[i][j] > max)
             {
                 max = arr[i][j];
-                maxRow = i;
-                maxCol = j;
+                MaxRow = i;
+                MaxCol = j;
             }
         }
     }
 
-    // Output results
-    cout << "\nLowest number: " << min;
-    cout << " at row " << minRow << " and column " << minCol << endl;
-
-    cout << "Maximum number: " << max;
-    cout << " at row " << maxRow << " and column " << maxCol << endl;
-
+    cout << "Minimum number is: " << min;
+    cout << " At Row " << MinRow << " and column " << MinCol << endl;
+    cout << "Maximum number is: " << max;
+    cout << " At Row " << MaxRow << " and column " << MaxCol << endl;
     return 0;
 }
